@@ -1,0 +1,117 @@
+---
+const {title} = Astro.props;
+
+---
+
+<html lang="da">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <link rel="stylesheet" href="https://use.typekit.net/cqt4xkm.css">
+		<title>{title}</title>
+	</head>
+	<body>
+        <header>
+            <a href="index.html"><h1>Omada Wine & Deli</h1></a>
+            <div>
+                <a target="_blank" href="https://www.instagram.com/omada.wine/?_ga=2.49089830.1044775297.1681987842-783553704.1681987842"><img src="./icons/instagram.svg" alt="Instagram Ikon"></a>
+                <a target="_blank" href="https://www.facebook.com/omada.wine"><img src="./icons/facebook.svg" alt="Facebook Ikon"></a>
+            </div>
+        </header>
+        <slot />
+        <footer>
+            <div id="footer_about">
+                <h3>Omada wine & deli</h3>
+                <p>Øster Farimagsgade 26</p>
+                <p>2100 København Ø</p>
+                <p>Wednesdays 11–20</p>
+                <p>Thursdays 11-20</p>
+                <p>Fridays 11–20</p>
+                <p>Saturdays 11–20</p>
+                <p>Sundays 11–20 </p>
+            </div>
+            <div>
+                <h3>Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="dinMail@gmail.com" required>
+                    <button>Sign Up</button>
+                </form>
+                <p>Sign up to our free newsletter and stay in the loop with the latest news on arrivals and drops.</p>
+            </div>
+        </footer>
+	</body>
+</html>
+
+<style>
+    /* Nulstilling af margin og padding på alle elementer, samt ændring af box model på alle elementer */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Normalisering af font og linjehøjde på dokumentets tekster, samt nedtoning af tekstfarven */
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #2d2d2d;
+}
+
+ 
+
+/* Normalisering af billeder */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+html {
+		--main-color: #F75443;
+		--background-color: #FFFEF2;
+
+		--main-font: aviano-sans, sans-serif;
+		--font-black: 900;
+		--font-bold: 700;
+		--font-regular: 400;
+		--font-light: 300;
+		--font-thin: 100;
+
+        background-color: var(--background-color);
+	}
+
+	header {
+		display: flex;
+		justify-content: center;
+
+        gap: 40px;
+
+        margin-top: 20px;
+	}
+
+    header div {
+        display: flex;
+        gap: 20px;
+        place-self: center;
+    }
+
+	header > a {
+		place-self: center;
+		
+        text-decoration: none;
+	}
+
+    h1 {
+        font-size: 1.3rem;
+		font-family: var(--main-font);
+		font-weight: var(--font-black);
+		color: var(--main-color);
+    }
+
+	header img {
+        width: 25px;
+	}
+</style>
