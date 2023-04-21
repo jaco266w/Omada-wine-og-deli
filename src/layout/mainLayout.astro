@@ -22,23 +22,31 @@ const {title} = Astro.props;
         </header>
         <slot />
         <footer>
-            <div id="footer_about">
-                <h3>Omada wine & deli</h3>
-                <p>Øster Farimagsgade 26</p>
-                <p>2100 København Ø</p>
-                <p>Wednesdays 11–20</p>
-                <p>Thursdays 11-20</p>
-                <p>Fridays 11–20</p>
-                <p>Saturdays 11–20</p>
-                <p>Sundays 11–20 </p>
+            <div id="footer_about" class="margin_mobile">
+                <h3 class="orange">Omada wine & deli</h3>
+                <div class="footer_about_1">
+                    <p>Øster Farimagsgade 26</p>
+                    <p>2100 København Ø</p>
+                </div>
+                <div class="footer_about_2">
+                    <p>Wednesdays 11–20</p>
+                    <p>Thursdays 11-20</p>
+                    <p>Fridays 11–20</p>
+                    <p>Saturdays 11–20</p>
+                    <p>Sundays 11–20 </p>
+                </div>
             </div>
-            <div>
+            <div class="margin_mobile">
                 <h3>Newsletter</h3>
                 <form>
                     <input type="email" placeholder="dinMail@gmail.com" required>
                     <button>Sign Up</button>
                 </form>
                 <p>Sign up to our free newsletter and stay in the loop with the latest news on arrivals and drops.</p>
+            </div>
+            <div id="footer_socials" class="margin_mobile">
+                <a target="_blank" href="https://www.instagram.com/omada.wine/?_ga=2.49089830.1044775297.1681987842-783553704.1681987842"><img src="./icons/instagram.svg" alt="Instagram Ikon"></a>
+                <a target="_blank" href="https://www.facebook.com/omada.wine"><img src="./icons/facebook.svg" alt="Facebook Ikon"></a>
             </div>
         </footer>
 	</body>
@@ -71,9 +79,11 @@ img {
 
 html {
 		--main-color: #F75443;
+        --secondary-color: #414141;
 		--background-color: #FFFEF2;
 
 		--main-font: aviano-sans, sans-serif;
+        --text-font: Georgia, 'Times New Roman', Times, serif;
 		--font-black: 900;
 		--font-bold: 700;
 		--font-regular: 400;
@@ -82,6 +92,30 @@ html {
 
         background-color: var(--background-color);
 	}
+
+    h3 {
+        font-family: var(--main-font);
+        font-weight: var(--font-bold);
+
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+    }
+    .orange {
+        color: var(--main-color);
+    }
+
+    p {
+        font-family: var(--text-font);
+        font-weight: var(--font-light);
+        line-height: 1.1rem;
+
+        color: var(--secondary-color);
+    }
+
+    .margin_mobile {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
 
 	header {
 		display: flex;
@@ -114,4 +148,62 @@ html {
 	header img {
         width: 25px;
 	}
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 40px;
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #E2E2DC;
+
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .footer_about_1 {
+        margin-bottom: 15px;
+    }
+    .footer_about_2 p {
+        line-height: 2rem;
+    }
+
+    footer form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        margin-bottom: 10px;
+    }
+
+    form input {
+        border: 1.7px solid var(--main-color);
+        background-color: transparent;
+        
+        padding: 5px 10px 5px 10px;
+
+        font-family: var(--text-font);
+    }
+
+    form button {
+        background-color: var(--main-color);
+        border: none;
+        color: white;
+
+        font-family: var(--main-font);
+        padding: 5px 10px 5px 10px;
+    }
+
+    #footer_socials {
+        display: flex;
+        gap: 20px;
+        place-self: center;
+    }
+
+    #footer_socials img {
+        width: 80%;
+    }
+
 </style>
