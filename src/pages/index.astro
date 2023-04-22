@@ -1,13 +1,97 @@
 ---
 import MainLayout from "../layout/mainLayout.astro";
+import Partner from "../components/Partner.astro";
 ---
 
 <MainLayout>
 	<main>
+		<section class="partners margin">
+			<h2>Samarbejdspartnere</h2>
+			<div class="partners_flex">
+				<Partner src="./img/chicken.webp" alt="Økologisk Kylling i græs" title="Hegnsholt" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
+				<Partner src="./img/grise.webp" alt="Nysgerrige økologiske grise" title="Gård 2" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
+				<Partner src="./img/running_chicken.webp" alt="Løbende økologiske kyllinger" title="Partner 3" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
+			</div>
+		</section>
 
 	</main>
 </MainLayout>
 
 <style>
+	* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Normalisering af font og linjehøjde på dokumentets tekster, samt nedtoning af tekstfarven */
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #2d2d2d;
+}
+
+ 
+
+/* Normalisering af billeder */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+    h2 {
+        font-family: var(--main-font);
+        font-weight: var(--font-regular);
+
+        font-size: 1.5rem;
+        color: var(--main-color);
+    }
+    h3 {
+        font-family: var(--main-font);
+        font-weight: var(--font-light);
+
+        font-size: 1.3rem;
+        color: var(--main-color);
+    }
+
+    p {
+        font-family: var(--text-font);
+        font-weight: var(--font-light);
+        line-height: 1.3rem;
+
+        color: var(--secondary-color);
+    }
+
+	.margin {
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+	.partners_flex {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.partners h2 {
+		margin-bottom: 20px;
+	}
+
+	@media (min-width:800px) {
+
+		h2 {
+			font-size: 2rem;
+		}
+		.margin {
+			max-width: 1600px;
+			margin: auto;
+		}
+		.partners_flex{
+			flex-direction: row;
+			justify-content: space-between;
+
+			gap: 70px;
+		}
+	}
 	
 </style>
