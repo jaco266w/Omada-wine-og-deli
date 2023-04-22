@@ -1,0 +1,68 @@
+---
+const {oplevelse, testi_name, date} = Astro.props;
+---
+<div class="testimonial_card">
+    <p class="oplevelse">{oplevelse}</p>
+    <div>
+    	<p class="name">{testi_name}</p>
+	    <p class="dato">{date}</p>
+    </div>
+</div>
+
+<style>
+    .testimonial_card {
+		width: 100%;
+		min-width: 250px;
+		max-width: 260px;
+		scroll-snap-align: start;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.oplevelse {
+		font-family: var(--text-font);
+		font-weight: var(--font-thin);
+		line-height: 1.3rem;
+		color: #737373;
+		
+		font-style: italic;
+		
+		margin-bottom: 10px;
+
+	}
+
+	.name {
+		font-family: var(--main-font);
+		font-weight: var(--font-regular);
+		line-height: 1.4rem;
+		color: var(--main-color);
+		margin: 0;
+	}
+
+	.dato {
+		font-family: var(--main-font);
+		font-weight: var(--font-light);
+		line-height: 1.4rem;
+		color: var(--secondary-color);
+		margin: 0;
+	}
+
+    @media (min-width:800px) {
+
+    .oplevelse {
+        font-size: 1.2rem;
+		line-height: 1.4rem;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .dato {
+        font-size: 1.2rem;
+    }
+}
+
+</style>

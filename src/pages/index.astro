@@ -1,6 +1,23 @@
 ---
 import MainLayout from "../layout/mainLayout.astro";
 import Partner from "../components/Partner.astro";
+import Testimonial from "../components/Testimonial.astro";
+
+const url = "https://upjdyokoapuilsqcbqlb.supabase.co/rest/v1/omada_testimonial?approved=is.true";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwamR5b2tvYXB1aWxzcWNicWxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODIxNzkwMjEsImV4cCI6MTk5Nzc1NTAyMX0.3ZWSbH1dMnJpAVscxWTh1y-E9qCmn-91DvYLNUxOO4g";
+
+
+const response = await fetch(url,{
+	method: "GET",
+	headers: {
+		apikey: key,
+		'Accept': 'application/json',
+		'Content-Type': 'application/json'
+	},
+
+});
+
+const udsagn = await response.json();
 ---
 
 <MainLayout>
@@ -13,7 +30,14 @@ import Partner from "../components/Partner.astro";
 				<Partner src="./img/running_chicken.webp" alt="Løbende økologiske kyllinger" title="Partner 3" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
 			</div>
 		</section>
-
+		<hr>
+		<section id="testimonial">
+			{
+				udsagn.map((testimonial) => {
+					return <Testimonial oplevelse = {testimonial.oplevelse} testi_name = {testimonial.testi_name} date = {testimonial.date} />
+				})
+			}
+		</section>
 	</main>
 </MainLayout>
 
@@ -77,8 +101,27 @@ img {
 		margin-bottom: 20px;
 	}
 
-	@media (min-width:800px) {
+	hr {
+		margin-left: 22px;
+		margin-right: 22px;
+		margin-top: 30px;
+		margin-bottom: 30px;
 
+		border: 1.5px solid var(--main-color);
+	}
+
+	#testimonial {
+		display: flex;
+		gap: 20px;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		scroll-snap-type: x mandatory;
+
+		margin-left: 30px;
+	}
+
+
+	@media (min-width:800px) {
 		h2 {
 			font-size: 2rem;
 		}
@@ -86,12 +129,26 @@ img {
 			max-width: 1600px;
 			margin: auto;
 		}
+
+		hr {
+			margin-top: 60px;
+			margin-bottom: 60px;
+			max-width: 1700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 		.partners_flex{
 			flex-direction: row;
 			justify-content: space-between;
 
 			gap: 70px;
 		}
+
+		#testimonial {
+        max-width: 1500px;
+        margin: auto;
+        justify-content: space-between;
+    }
 	}
 	
 </style>
