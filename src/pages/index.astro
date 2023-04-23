@@ -2,6 +2,9 @@
 import MainLayout from "../layout/mainLayout.astro";
 import Partner from "../components/Partner.astro";
 import Testimonial from "../components/Testimonial.astro";
+import Form from "../components/Form.astro";
+import Address from "../components/Address.astro";
+import Omos from "../components/Omos.astro";
 
 const url = "https://upjdyokoapuilsqcbqlb.supabase.co/rest/v1/omada_testimonial?approved=is.true";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwamR5b2tvYXB1aWxzcWNicWxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODIxNzkwMjEsImV4cCI6MTk5Nzc1NTAyMX0.3ZWSbH1dMnJpAVscxWTh1y-E9qCmn-91DvYLNUxOO4g";
@@ -38,6 +41,14 @@ const udsagn = await response.json();
 				})
 			}
 		</section>
+		<section id="form">
+			<h2>Har du besøgt os?</h2>
+			<p>Så vil vi mægtig gerne høre om din oplevelse</p>
+			<Form />
+		</section>
+		<Address />
+		<hr>
+		<Omos />
 	</main>
 </MainLayout>
 
@@ -120,13 +131,44 @@ img {
 		margin-left: 30px;
 	}
 
+	#form {
+		margin-top: 70px;
+	}
+	#form > h2 {
+		text-align: center;
+		line-height: 1rem;
+	}
+	#form > p {
+		font-family: var(--main-font);
+		font-weight: var(--font-regular);
+		text-align: center;
+		margin: 0;
+	}
+
+	
+
+	
 
 	@media (min-width:800px) {
+
+		article {
+			flex-direction: row;
+			gap: 70px;
+		}
+
+		.om_os {
+			max-width: 800px;
+		}
+
 		h2 {
 			font-size: 2rem;
 		}
+
+		p {
+			font-size: 1.2rem;
+		}
 		.margin {
-			max-width: 1600px;
+			max-width: 1400px;
 			margin: auto;
 		}
 
@@ -145,10 +187,20 @@ img {
 		}
 
 		#testimonial {
-        max-width: 1500px;
-        margin: auto;
-        justify-content: space-between;
-    }
+			max-width: 1500px;
+			margin: auto;
+			justify-content: space-between;
+    	}
+
+		#form > h2 {
+			font-size: 2rem;
+			margin-bottom: 15px;
+		}
+
+		#form > p {
+			font-size: 1.4rem;
+			margin-bottom: 30px;
+		}
 	}
 	
 </style>
