@@ -25,6 +25,12 @@ const udsagn = await response.json();
 
 <MainLayout>
 	<main>
+		<section class="hero">
+			<video autoplay loop muted>
+				<source src="./video/bg_web_v2.mp4">
+			</video>
+			<p>Vi præsenterer et omhyggeligt udvalg af lokale landmænds ost, charcuteri, surdejsbrød og kvalitetsfødevarer såsom olivenolie, eddike, dåsefisk, krydderier og meget mere.</p>
+		</section>
 		<section class="partners margin">
 			<h2>Samarbejdspartnere</h2>
 			<div class="partners_flex">
@@ -145,11 +151,58 @@ img {
 		margin: 0;
 	}
 
-	
+	.hero {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
 
-	
+		overflow: hidden;
+		place-items: center;
+
+		margin-top: 20px;
+		margin-bottom: 50px;
+	}
+
+	.hero video {
+		grid-column: 1;
+		grid-row: 1;
+		
+		object-fit: cover;
+		height: 100%;
+	}
+	.hero p {
+		grid-column: 1;
+		grid-row: 1;
+
+		font-family: var(--main-font);
+		font-weight: var(--font-regular);
+		color: white;
+		font-size: 1.4rem;
+		line-height: 2.2rem;
+		
+		max-width: 40%;
+		margin-right: auto;
+		margin-left: 30px;
+	}
 
 	@media (min-width:800px) {
+
+		.hero {
+			place-items: start;
+			max-height: 600px;
+		}
+
+		.hero video {
+			width: 100%;
+		}
+
+		.hero p {
+			max-width: 1100px;
+			margin: auto;
+
+			line-height: 3rem;
+			font-size: 1.8rem;
+		}
 
 		article {
 			flex-direction: row;
