@@ -1,0 +1,117 @@
+---
+import InteractiveAnimation from "./InteractiveAnimation.astro";
+---
+
+<script is:inline src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<!-- Importer også biblioteket til interaktive LottieFiles -->
+<script is:inline src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+
+<section class="hero">
+    <video autoplay loop muted>
+        <source src="./video/bg_web_v2.mp4">
+    </video>
+    <p>Vi præsenterer et omhyggeligt udvalg af lokale landmænds ost, charcuteri, surdejsbrød og kvalitetsfødevarer såsom olivenolie, eddike, dåsefisk, krydderier og meget mere.</p>
+    <lottie-player class="interactive_animation" src="https://assets5.lottiefiles.com/packages/lf20_vfrsgkne.json"></lottie-player>
+</section>
+
+<style>
+    .hero {
+        display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+        
+		overflow: hidden;
+		place-items: center;
+        
+		margin-top: 20px;
+		margin-bottom: 50px;
+	}
+    
+	.hero video {
+        grid-column: 1;
+		grid-row: 1;
+		z-index: -1;
+		
+		object-fit: cover;
+		height: 100%;
+	}
+	.hero p {
+        grid-column: 1;
+		grid-row: 1;
+		z-index: 5;
+        
+		font-family: var(--main-font);
+		font-weight: var(--font-regular);
+		color: white;
+		font-size: 1.4rem;
+		line-height: 2.2rem;
+		
+		max-width: 40%;
+		margin-right: auto;
+		margin-left: 30px;
+	}
+
+    lottie-player {
+        grid-column: 1;
+        grid-row: 1;
+        width: 8%;
+        place-self: start;
+        margin-top: 190px;
+        margin-left: 155px;
+    }
+
+    
+    @media (min-width:800px) {
+        .hero {
+            place-items: center;
+            max-height: 600px;
+        }
+        
+        .hero video {
+            width: 100%;
+        }
+        
+        .hero p {
+            max-width: 1100px;
+            margin: auto;
+            
+            line-height: 3rem;
+            font-size: 1.8rem;
+        }
+
+        lottie-player {
+            place-self: center;
+            margin-left: 0;
+            margin-top: 400px;
+        }
+
+        
+       
+    }
+    </style>
+    
+    <script>
+        //Få et array med all elementer med "interactive_animation" klassen
+        const interactiveAnimations = document.querySelectorAll(".interactive_animation");
+      
+        //For hver element i arrayet
+        interactiveAnimations.forEach((element) => {
+          //Få interaction data fra dataset propertyx
+      
+          //Lav en animation ved at bruge LottieInteractivity objektet
+          LottieInteractivity.create({
+            //Vælg elementet der skal være interaktivt
+            player: element,
+            //Sæt at det skal være musen der lyttes efter
+            mode: "scroll",
+            actions: [
+              {
+                //Sæt hvilken slagt interaktion (hover, click eller toggles)
+                visibility: [0,1],
+                type: 'seek',
+                frames: [0, 300],
+              },
+            ],
+          });
+        });
+      </script>
