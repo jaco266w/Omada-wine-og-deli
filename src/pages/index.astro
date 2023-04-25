@@ -31,8 +31,8 @@ const udsagn = await response.json();
 			<h2>Samarbejdspartnere</h2>
 			<div class="partners_flex">
 				<Partner src="./img/chicken.webp" alt="Økologisk Kylling i græs" title="Hegnsholt" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
-				<Partner src="./img/grise.webp" alt="Nysgerrige økologiske grise" title="Gård 2" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
-				<Partner src="./img/running_chicken.webp" alt="Løbende økologiske kyllinger" title="Partner 3" description="Fra Hegnsholt får vi leveret vores Økologiske æg. Hegnsholt er en lokal gård i Lejre som blandt er med til at bekæmpe madspild, da der fodre deres dyr med restprodukter fra bageriet Emmery’s"/>
+				<Partner src="./img/groen_kasse.webp" alt="Økologisk Grøntsagskasse" title="Birkemose Gaard" description="Omada Wine & Deli har nu indgået et spændende samarbejde med Birkemose Gaard, der leverer friske grøntsager direkte til vores butik. Vi er stolte af at kunne tilbyde vores kunder en endnu bedre oplevelse med de bedste råvarer."/>
+				<Partner src="./img/groendals.webp" alt="Løbende økologiske kyllinger" title="Grøndals" description="Vi er begejstrede for vores nye samarbejde med Grøndals, der leverer fisk på dåse af høj kvalitet direkte til Omada Wine & Deli. Nu kan vores kunder nyde det bedste fra havet på en bæredygtig og lækker måde."/>
 			</div>
 		</section>
 		<hr>
@@ -177,10 +177,9 @@ img {
 			margin-right: auto;
 		}
 		.partners_flex{
-			flex-direction: row;
-			justify-content: space-between;
-
-			gap: 70px;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: 1fr;
 		}
 
 		#testimonial {
