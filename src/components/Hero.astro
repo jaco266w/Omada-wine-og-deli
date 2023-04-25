@@ -1,9 +1,7 @@
 ---
-import InteractiveAnimation from "./InteractiveAnimation.astro";
 ---
 
 <script is:inline src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<!-- Importer også biblioteket til interaktive LottieFiles -->
 <script is:inline src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
 
 <section class="hero">
@@ -91,22 +89,15 @@ import InteractiveAnimation from "./InteractiveAnimation.astro";
     </style>
     
     <script>
-        //Få et array med all elementer med "interactive_animation" klassen
         const interactiveAnimations = document.querySelectorAll(".interactive_animation");
       
-        //For hver element i arrayet
         interactiveAnimations.forEach((element) => {
-          //Få interaction data fra dataset propertyx
       
-          //Lav en animation ved at bruge LottieInteractivity objektet
           LottieInteractivity.create({
-            //Vælg elementet der skal være interaktivt
             player: element,
-            //Sæt at det skal være musen der lyttes efter
             mode: "scroll",
             actions: [
               {
-                //Sæt hvilken slagt interaktion (hover, click eller toggles)
                 visibility: [0,1],
                 type: 'seek',
                 frames: [0, 300],
